@@ -15,7 +15,7 @@ a, a:hover, a:visited, a:active {
 /* Layout */
 /**********/
 aside, footer, header, nav, section, article {
-    display: flex;
+    display: flex; 
     flex-direction: column;
 }
 body {
@@ -56,8 +56,21 @@ nav {
 footer {
     background: #222;
     grid-area: bottom;
-}
+} 
 
+h2{ 
+    font-size: small; 
+    margin-left: 10px
+} 
+
+p{ 
+    font-size: smaller; 
+    margin-left:10px
+} 
+.play-button{ 
+    margin-left:10px; 
+    margin-bottom: 7px;
+}
 
 /***************************/
 /* Accessories & Florishes */
@@ -81,16 +94,47 @@ footer {
 /***************************/
 
 /* Your Code Here */
+aside a{ 
+    margin-left:20px;
+} 
 
+aside h1{ 
+    margin-left:20px;
+}  
 
+.fas { 
+    margin-top: 10px;
+}
+.fas { 
+    margin-top:10px;
+}
 
 /********************************/
 /* Part B: Header & Nav Styling */
 /********************************/
 
 /* Your Code Here */
+header{ 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: flex-end;
+    align-items: center;
+    height: 100px;
+    /*margin-r:50px;*/ 
 
-
+} 
+#upgrade { 
+    margin: 50px; 
+    outline-style: dotted; 
+} 
+nav{ 
+    display: flex; 
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+nav a{ 
+    margin-right: 20px;
+}
 
 
 
@@ -100,9 +144,44 @@ footer {
 
 /* Your Code Here */
 
+/*article{ 
+    display: flex; 
+} */ 
 
+section{ 
+    border-radius: 15px; 
+    padding:20px; 
+    width: 20%; 
 
+}
 
+.artist-card { 
+    justify-content: center; 
+    height: 280px;  
+    width: 20%;
+    border-radius: 10%; 
+    padding: 30px; 
+    margin-bottom: 30px;
+}
+
+.artist-card > div {  
+    flex-direction: column; 
+    display: flex; 
+    padding: 20px; 
+    background-color: #222222; 
+border-radius: 10px;
+}
+
+.artist-card img { 
+    width: 100%; 
+    border-radius: 50%; 
+} 
+
+#featured-content { 
+    display: flex;  
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
 /**************************/
 /* Part D: Responsive UIs */
 /**************************/
