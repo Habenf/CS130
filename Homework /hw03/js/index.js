@@ -18,6 +18,8 @@
  * 
  */
 
+let currentIndex = 0;
+
 const images = [
     'images/field1.jpg',
     'images/purple.jpg',
@@ -27,18 +29,69 @@ const images = [
     'images/purple1.jpg',
     'images/magnolias.jpg',
     'images/daisy1.jpg'
-];
+]; 
 
 const initScreen = () => {
     images.forEach((image, idx) => {
         document.querySelector('.cards').innerHTML += `
         <li class="card">
-            <button class="image" 
+            <div class="image" 
+                onclick="handleThumbnailClick(event)" 
                 style="background-image:url('${image}')"
-                data-index=${idx}"
-                aria-label="Displays image ${idx} in the main panel."></button>
+                data-index="${idx}"></div>
         </li>`;
     });
 };
+
+const handleThumbnailClick= ev=> { 
+    //figure out which element the user clicked on: 
+    const elem = ev.currentTarget;  
+    console. log (elem); 
+
+    // store the element's background image in a variable: 
+    const bgImage = elem.style.backgroundImage;
+
+    //update the featured image's background image with the 
+    //background image of the thumbnail that was just clicked:
+    document.querySelector('.featured_image').style.backgroundImage = bgImage; 
+
+    //update the currentIndex to the index associated with the 
+    //thumbnail the user just clicked on. 
+currentIndex = Number(elem.getAttribute('data-index'));
+} 
+
+//Goal 
+//1. Create a function that handles previous 
+//2. Create a function that handles next 
+
+const previous = () => { 
+    if (currentIndex  > 1) {
+        currentIndex -= 1; 
+    } else{  
+        //reset the index back to the end: 
+        currentIndex=7;
+    }
+        console.log ('Show previous image', currentIndex); 
+        console.log(images[currentIndex]);
+        document.querySelector('.featured_image').style.backgroundImage =`
+        url('${images[currentIndex]}')
+        `;
+};
+const next = () => { 
+    if (currentIndex < 7) { 
+        currentIndex += 1;   
+    } else { 
+        //reset the index back to the beginning: 
+        currentIndex= 0;
+    }
+        console.log ('Show next image', currentIndex);  
+        console.log(images[currentIndex]);
+        document.querySelector('.featured_image').style.backgroundImage =`
+        url('${images[currentIndex]}')
+        `;
+};
+
+
+
 
 initScreen();
